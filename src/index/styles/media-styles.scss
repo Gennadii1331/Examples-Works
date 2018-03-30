@@ -1,0 +1,32 @@
+@media screen and (max-width: 768px){
+  .box-wrapper {
+    position: static;
+    top: initial;
+    left: initial;
+    transform: translate(0, 0);
+  }
+}
+
+.items-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+div[class$="-block"]{
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 575px) {
+  .small-block {
+    flex-basis:49.999998%;
+  }
+  .small-block:nth-child(8){
+    flex-basis: 99.999996%;
+  }
+  .middle-block,.big-block {
+    flex-basis: 99.999996%;
+  }
+}
