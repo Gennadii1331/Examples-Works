@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_regular.woff2) format("woff2");
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_light.woff2) format("woff2");
+  font-weight: 200; }
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_semibold.woff2) format("woff2");
+  font-weight: 600; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: "SF Pro Display", sans-serif;
+  min-height: 100%;
+  height: 100%;
+  color: #FFFFFF; }
+
+body {
+  min-height: 100%;
+  height: 100%; }
+
+body, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+ul, ol {
+  list-style: none; }
+
+.page-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  min-height: 100%;
+  color: black; }
+
+.commentBox {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .commentBox__nameInput {
+    padding: 40px;
+    margin-top: 10%; }
+    .commentBox__nameInput input {
+      font-size: 1.3rem;
+      margin: 0 auto;
+      width: 100%;
+      height: 3rem;
+      border: 1px solid lightgray;
+      border-radius: 5px; }
+  .commentBox__textArea {
+    padding: 0 40px 40px 40px; }
+    .commentBox__textArea textarea {
+      font-size: 1.3rem;
+      width: 100%;
+      border-radius: 5px;
+      border-color: lightgray; }
+  .commentBox__btnAdd {
+    padding: 0 40px 40px 40px; }
+    .commentBox__btnAdd button {
+      font-size: 1.3rem;
+      width: 100%;
+      height: 3rem;
+      border-color: transparent;
+      border-radius: 5px;
+      background-color: #3387ea;
+      color: #FFFFFF;
+      cursor: pointer; }
+      .commentBox__btnAdd button:hover {
+        background-color: #59b0e2; }
+      .commentBox__btnAdd button:active {
+        background-color: blue; }
+  .commentBox__userComment {
+    color: black;
+    padding: 0 40px 40px 40px;
+    width: 100%;
+    height: 100%; }
+
+.user__Name {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #3387ea; }
+
+.user__Comment {
+  padding-bottom: 20px;
+  font-weight: 400;
+  font-size: 1rem;
+  border-bottom: 1px solid lightgray; }
+
+.user__data {
+  float: right; }
