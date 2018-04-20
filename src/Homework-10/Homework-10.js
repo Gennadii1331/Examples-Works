@@ -6,6 +6,7 @@ const btnAdd = document.querySelector('#btnAdd');
 const userName = document.querySelector('#userName');
 const userComment = document.querySelector('#userComment');
 
+
 btnAdd.onclick = addComments;
 
 
@@ -22,9 +23,11 @@ function addComments() {
     newElement.className = "user__Comment";
     newName.className = "user__Name";
     newData.className = "user__data";
-    userComment.appendChild(newName);
-    userComment.appendChild(newElement);
-    userComment.appendChild(newData);
-}
+    if(nameField.value && textField.value) {
+        userComment.appendChild(newName);
+        userComment.appendChild(newElement);
+        userComment.appendChild(newData);
+    }
+};
 
 
