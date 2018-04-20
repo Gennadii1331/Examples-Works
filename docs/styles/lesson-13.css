@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_regular.woff2) format("woff2");
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_light.woff2) format("woff2");
+  font-weight: 200; }
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local("SF Pro Display"), url(../assets/fonts/sf-pro-display_semibold.woff2) format("woff2");
+  font-weight: 600; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: "SF Pro Display", sans-serif;
+  min-height: 100%;
+  height: 100%;
+  color: #FFFFFF; }
+
+body {
+  min-height: 100%;
+  height: 100%; }
+
+body, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+ul, ol {
+  list-style: none; }
+
+body {
+  font-family: sans-serif; }
+
+.dropdown {
+  position: relative; }
+  .dropdown > * {
+    box-sizing: border-box; }
+  .dropdown-countries {
+    max-width: 300px;
+    margin: 0 auto; }
+  .dropdown__title {
+    background: #314fcf;
+    color: #FFF;
+    padding: 0.5rem;
+    text-align: right; }
+    .dropdown__title:focus {
+      background-color: #8496e2; }
+  .dropdown__options {
+    -ms-transform: scaleY(0);
+        transform: scaleY(0);
+    -ms-transform-origin: top;
+        transform-origin: top;
+    transition: all 0.5s;
+    visibility: hidden;
+    width: 100%;
+    background: #FFF;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.17); }
+  .dropdown__option:focus {
+    background: #8496e2; }
+  .dropdown.active .dropdown__options {
+    -ms-transform: scaleY(1);
+        transform: scaleY(1);
+    visibility: visible; }

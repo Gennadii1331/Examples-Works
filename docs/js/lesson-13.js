@@ -60,58 +60,93 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 330);
+/******/ 	return __webpack_require__(__webpack_require__.s = 336);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 330:
+/***/ 336:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(331);
+module.exports = __webpack_require__(337);
 
 
 /***/ }),
 
-/***/ 331:
+/***/ 337:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(332);
+__webpack_require__(338);
 
-var nameField = document.querySelector('#nameField');
-var textField = document.querySelector('#textField');
-var btnAdd = document.querySelector('#btnAdd');
-var userName = document.querySelector('#userName');
-var userComment = document.querySelector('#userComment');
+/**
+ * @param {Element} dropdownContainer Html element for dropdown
+ * */
+function dropdown(dropdownContainer) {
+    var title = dropdownContainer.querySelector('.dropdown__title');
+    var options = dropdownContainer.querySelectorAll('.dropdown__option');
+    var isOpened = dropdownContainer.classList.contains('active');
 
-btnAdd.onclick = addComments;
-
-function addComments() {
-    var newElement = document.createElement('div');
-    var newName = document.createElement('div');
-    var newData = document.createElement('div');
-    var Time = new Date();
-    newData.innerHTML = Time.toLocaleString();
-    newName.innerHTML = nameField.value;
-    newElement.innerHTML = textField.value;
-    nameField.value = '';
-    textField.value = '';
-    newElement.className = "user__Comment";
-    newName.className = "user__Name";
-    newData.className = "user__data";
-    if (nameField.value && textField.value) {
-        userComment.appendChild(newName);
-        userComment.appendChild(newElement);
-        userComment.appendChild(newData);
+    function open() {
+        dropdownContainer.classList.add('active');
+        isOpened = true;
+        document.addEventListener('click', close);
     }
-};
+
+    function close() {
+        console.log('Drop down closed');
+        dropdownContainer.classList.remove('active');
+        isOpened = false;
+        document.removeEventListener('click', close);
+    }
+
+    function toggleDropdown() {
+        if (isOpened) {
+            close();
+        } else {
+            open();
+        }
+    }
+
+    function changeTitle(text) {
+        title.textContent = text;
+        close();
+    }
+
+    title.addEventListener('click', function (eventObject) {
+        console.log(eventObject);
+        eventObject.stopPropagation();
+        toggleDropdown();
+    });
+
+    title.addEventListener('keypress', function (eventObject) {
+        console.log(eventObject);
+        console.log('Keypressed');
+        if (eventObject.keyCode === 13) {
+            toggleDropdown();
+        }
+    });
+
+    options.forEach(function (option) {
+        option.addEventListener('click', function () {
+            changeTitle(option.textContent);
+        });
+        option.addEventListener('keypress', function (eventObject) {
+            if (eventObject.keyCode === 13) {
+                changeTitle(option.textContent);
+            }
+        });
+    });
+}
+
+dropdown(document.querySelector('#countries'));
+dropdown(document.querySelector('#movies'));
 
 /***/ }),
 
-/***/ 332:
+/***/ 338:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
