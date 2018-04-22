@@ -13,6 +13,7 @@ const baseConf = (_path) => {
         'Homework-10': ['./src/Homework-10/Homework-10.js'],
         'lesson-10': ['./src/lesson-10/lesson-10.js'],
         'lesson-13': ['./src/lesson-13/lesson-13.js'],
+        'lesson-14': ['./src/lesson-14/lesson-14.js'],
         'Homework-12': ['./src/Homework-12/Homework-12.js']
     };
 
