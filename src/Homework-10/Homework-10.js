@@ -28,6 +28,6 @@ function addComments() {
         userComment.appendChild(newElement);
         userComment.appendChild(newData);
     }
-};
+}
 
 

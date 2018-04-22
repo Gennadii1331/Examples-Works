@@ -63,3 +63,22 @@ function dropdown (dropdownContainer) {
 
 dropdown(document.querySelector('#countries'));
 dropdown(document.querySelector('#movies'));
+
+function accordion(accordionContainer){
+    const elems = accordionContainer.querySelectorAll('accordion__block');
+    const titles = accordionContainer.querySelectorAll('accordion__title');
+    function closeAll() {
+        elems.forEach((el) => el.classList.remove(ACCTIVE_CLASS_NAME))
+    }
+
+    titles.forEach((title) => {
+        title.addEventListener('click', () => {
+            const accordionBlock =
+            closeAll();
+            title.parentElement.classList.add(ACTIVE_CLASS_NAME)
+        })
+    })
+
+}
+
+accordion(document.querySelector('.accordion'));

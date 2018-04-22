@@ -50,3 +50,26 @@ body {
     }
   }
 }
+
+.accordion{
+  border: 1px solid red;
+  margin: 0 auto;
+  width:400px;
+  &__block{
+    &.active{
+      &__content{
+        height: 100%;
+        transform: scaleY(1);
+      }
+    }
+    &__title{
+      padding: 1rem;
+      background-color: magenta;
+      color:#ffffff;
+    }
+    &__content{
+      height: 0;
+      transform: scaleY(0);
+    }
+  }
+}

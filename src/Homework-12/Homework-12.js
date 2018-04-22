@@ -32,9 +32,7 @@ function open() {
 */
 const accordion = document.querySelector('.card');
 const accordionItems = document.querySelectorAll('.Chapter');
-accordion.addEventListener('click', opened);
-accordion.addEventListener('keypress',opened);
-function opened() {
+function open() {
     for (let chapter of accordionItems) {
         chapter.onclick = function () {
            close();
@@ -56,7 +54,7 @@ function close() {
 }
 
 
-
+open();
 
 
 
