@@ -97,12 +97,12 @@ function addComments() {
     newData.innerHTML = Time.toLocaleString();
     newName.innerHTML = nameField.value;
     newElement.innerHTML = textField.value;
-    nameField.value = '';
-    textField.value = '';
     newElement.className = "user__Comment";
     newName.className = "user__Name";
     newData.className = "user__data";
     if (nameField.value && textField.value) {
+        nameField.value = '';
+        textField.value = '';
         userComment.appendChild(newName);
         userComment.appendChild(newElement);
         userComment.appendChild(newData);
