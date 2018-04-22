@@ -114,9 +114,7 @@ function open() {
 */
 var accordion = document.querySelector('.card');
 var accordionItems = document.querySelectorAll('.Chapter');
-accordion.addEventListener('click', opened);
-accordion.addEventListener('keypress', opened);
-function opened() {
+function open() {
     var _loop = function _loop(chapter) {
         chapter.onclick = function () {
             close();
@@ -182,6 +180,8 @@ function close() {
         }
     }
 }
+
+open();
 
 /***/ }),
 

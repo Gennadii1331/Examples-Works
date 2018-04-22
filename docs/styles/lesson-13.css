@@ -74,3 +74,20 @@ body {
     -ms-transform: scaleY(1);
         transform: scaleY(1);
     visibility: visible; }
+
+.accordion {
+  border: 1px solid red;
+  margin: 0 auto;
+  width: 400px; }
+  .accordion__block.active__content {
+    height: 100%;
+    -ms-transform: scaleY(1);
+        transform: scaleY(1); }
+  .accordion__block__title {
+    padding: 1rem;
+    background-color: magenta;
+    color: #ffffff; }
+  .accordion__block__content {
+    height: 0;
+    -ms-transform: scaleY(0);
+        transform: scaleY(0); }
