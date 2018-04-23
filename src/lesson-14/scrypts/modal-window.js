@@ -1,5 +1,4 @@
-
-import './modal-window.scss';
+import '../scrypts/modal-window.scss'
 
 const SHOWED_CLASS_NAME = 'visible';
 const MODAL_WINDOW_CLASS_NAME = 'modal';
@@ -9,15 +8,16 @@ const MODAL_TITLE_CLASSNAME = 'modal__title';
 const MODAL_MAIN_CLASSNAME = 'modal__main';
 const MODAL_CONTROLS_CLASSNAME = 'modal__controls';
 const MODAL_CANCEL_CLASSNAME = 'modal__cancel';
-const MODAL_CONTROL_CLASSNAME = 'modal__confirm';
+const MODAL_CONFIRM_CLASSNAME = 'modal__confirm';
+const MODAL_CONTROL_CLASSNAME = 'modal__control';
 
 
 const CONTENT_TEMPLATE = `
   <h1 class="${MODAL_TITLE_CLASSNAME}"></h1> 
   <div class="${MODAL_MAIN_CLASSNAME}"></div> 
   <div class="${MODAL_CONTROLS_CLASSNAME}">
-    <button class="${MODAL_CANCEL_CLASSNAME}${MODAL_CONTROL_CLASSNAME}"></button>
-    <button class="${MODAL_CONFIRM_CLASSNAME}${MODAL_CONTROL_CLASSNAME}"></button>
+    <button class="${MODAL_CANCEL_CLASSNAME} ${MODAL_CONTROL_CLASSNAME}"></button>
+    <button class="${MODAL_CONFIRM_CLASSNAME} ${MODAL_CONTROL_CLASSNAME}"></button>
   </div> 
 `;
 
@@ -46,21 +46,24 @@ class ModalWindow {
             title.classList.add(`${MODAL_TITLE_CLASSNAME}_visible`);
         }
 
-        if (options.title) {
-            const content = this.content.querySelector(`${MODAL_MAIN_CLASSNAME}`);
-            content.innerHTML = options.title;
+        if (options.content) {
+            const content = this.content.querySelector(`.${MODAL_MAIN_CLASSNAME}`);
+            content.innerHTML = options.content;
         }
 
         if(options.controls && options.controls.length > 0){
-            const controlsWrapper = this.content.querySelector(`${MODAL_CONTROLS_CLASSNAME}`);
+            const controlsWrapper = this.content.querySelector(`.${MODAL_CONTROLS_CLASSNAME}`);
             controlsWrapper.classList.add(`${MODAL_CONTROLS_CLASSNAME}_visible`);
 
             const controls = this.content.querySelectorAll(`.${MODAL_CONTROL_CLASSNAME}`);
             controls.forEach((control, i) => {
-
-            })
+                control.innerHTML = options.controls[i].text;
+                control.onclick = () => {
+                    this.hide();
+                    options.controls[i].callback();
+                };
+            });
         }
-
 
         this.rootElement.classList.add(SHOWED_CLASS_NAME);
     }
@@ -94,7 +97,7 @@ class ModalWindow {
         this.rootElement.appendChild(this.content);
     }
 }
-
 const modalWindow = new ModalWindow(document.querySelector('#appModalContainer'));// singleton
 
 export { modalWindow };
+

@@ -18,3 +18,12 @@ document.querySelector('#btn').addEventListener('click', () => {
     };
     modalWindow.show(options);
 });
+
+setTimeout(() =>{
+    const options = {
+        title: 'Hello world',
+        content: '<p>Hello Content</p>',
+        controls: []
+    };
+    modalWindow.show(options);
+});

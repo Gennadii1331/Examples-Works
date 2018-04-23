@@ -1,0 +1,40 @@
+
+.lighter-box{
+  margin-top: 40px;
+  display: flex;
+  justify-content:space-around;
+}
+
+.lighters{
+  width:150px;
+  height:150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border:1px solid lightgray;
+  &__light{
+    width:60px;
+    height:60px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    &.active{
+      background-color: red;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

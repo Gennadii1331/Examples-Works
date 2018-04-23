@@ -60,4 +60,11 @@
       display: inherit;
     }
   }
+  &__controls {
+    display: none;
+    text-align: center;
+  &_visible{
+    display: inherit;
+  }
+  }
 }
