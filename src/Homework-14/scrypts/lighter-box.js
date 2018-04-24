@@ -40,12 +40,37 @@ class Lighter {
 
     addActive(){
         const btnSwitch = this.content.querySelector(`.${LIGHTERS_TOOGL_CLASSNAME}`);
-        const lamp = this.content.querySelector(`.${LIGHTERS_LIGHT_CLASSNAME}`)
+        const lamp = this.content.querySelector(`.${LIGHTERS_LIGHT_CLASSNAME}`);
         btnSwitch.innerText = 'OFF';
-        btnSwitch.onclick = () => {
-            btnSwitch.innerText = 'ON';
+        let isOn = lamp.classList.contains('active');
+
+        function On() {
             lamp.classList.add('active');
+            isOn = true;
+            document.addEventListener('click', Off);
+            btnSwitch.innerText = 'ON';
         }
+
+        function Off() {
+            console.log('Drop down closed');
+            lamp.classList.remove('active');
+            isOn = false;
+            document.removeEventListener('click', Off);
+            btnSwitch.innerText = 'OFF';
+        }
+
+        function toggleBtn() {
+            if(isOn) {
+                Off();
+            } else {
+                On();
+            }
+        }
+        btnSwitch.addEventListener('click', (eventObject) => {
+            eventObject.stopPropagation();
+            toggleBtn()
+        });
+
     }
 
 }
