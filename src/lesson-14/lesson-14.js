@@ -13,7 +13,8 @@ document.querySelector('#btn').addEventListener('click', () => {
             {
                 text: 'OK!',
                 callback: () => console.log('CONFIRMED!'),
-            },
+            }
+
         ]
     };
     modalWindow.show(options);

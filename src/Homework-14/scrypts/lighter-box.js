@@ -1,6 +1,7 @@
 import '../scrypts/lighter-box.scss'
 
 const ACTIVE_CLASS_NAME = 'active';
+const DEACTIVE_TOOGL_CLASSNAME = 'deactivator';
 const LIGHTER_BOX_CLASS_NAME = 'lighter-box';
 const LIGHTERS_CLASS_NAME = 'lighters';
 const LIGHTERS_TOOGL_CLASSNAME = 'lighters__toogl';
@@ -20,42 +21,40 @@ class Lighter {
         this.rootElement = rootElement;
 
         this.render();
-        this.addActive();
+        this.lighterSettings();
     }
 
     render() {
         this.rootElement.classList.add(LIGHTER_BOX_CLASS_NAME);
 
-        this.renderContent();
+        this.renderLighter();
     }
 
-    renderContent() {
-        this.content = document.createElement('div');
+    renderLighter() {
+            this.lighter = document.createElement('div');
 
-        this.content.classList.add(LIGHTERS_CLASS_NAME);
-        this.content.innerHTML = CONTENT_TEMPLATE;
+            this.lighter.classList.add(LIGHTERS_CLASS_NAME);
+            this.lighter.innerHTML = CONTENT_TEMPLATE;
 
-        this.rootElement.appendChild(this.content);
+            this.rootElement.appendChild(this.lighter);
     }
 
-    addActive(){
-        const btnSwitch = this.content.querySelector(`.${LIGHTERS_TOOGL_CLASSNAME}`);
-        const lamp = this.content.querySelector(`.${LIGHTERS_LIGHT_CLASSNAME}`);
+    lighterSettings(){
+        const btnSwitch = this.lighter.querySelector(`.${LIGHTERS_TOOGL_CLASSNAME}`);
+        const btnOff = document.querySelector(`.${DEACTIVE_TOOGL_CLASSNAME}`);
+        const lamp = this.lighter.querySelector(`.${LIGHTERS_LIGHT_CLASSNAME}`);
         btnSwitch.innerText = 'OFF';
         let isOn = lamp.classList.contains('active');
 
         function On() {
             lamp.classList.add('active');
             isOn = true;
-            document.addEventListener('click', Off);
             btnSwitch.innerText = 'ON';
         }
 
         function Off() {
-            console.log('Drop down closed');
             lamp.classList.remove('active');
             isOn = false;
-            document.removeEventListener('click', Off);
             btnSwitch.innerText = 'OFF';
         }
 
@@ -68,12 +67,16 @@ class Lighter {
         }
         btnSwitch.addEventListener('click', (eventObject) => {
             eventObject.stopPropagation();
-            toggleBtn()
+                toggleBtn()
+        });
+        btnOff.addEventListener('click', (eventObject) => {
+            eventObject.stopPropagation();
+            Off();
         });
 
     }
-
 }
+
 
  const lighter = new Lighter(document.querySelector('#appLighterBox'));
 

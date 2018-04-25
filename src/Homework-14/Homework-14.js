@@ -4,6 +4,6 @@ import { lighter} from './scrypts/lighter-box';
 
 document.querySelector('#btn-creator').addEventListener('click', () => {
     lighter.render();
-    lighter.addActive();
+    lighter.lighterSettings();
 });
 
