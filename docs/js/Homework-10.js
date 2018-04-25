@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 330);
+/******/ 	return __webpack_require__(__webpack_require__.s = 341);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 330:
+/***/ 341:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(331);
+module.exports = __webpack_require__(342);
 
 
 /***/ }),
 
-/***/ 331:
+/***/ 342:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(332);
+__webpack_require__(343);
 
 var nameField = document.querySelector('#nameField');
 var textField = document.querySelector('#textField');
@@ -111,7 +111,7 @@ function addComments() {
 
 /***/ }),
 
-/***/ 332:
+/***/ 343:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

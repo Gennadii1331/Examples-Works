@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: "SF Pro Display", sans-serif;
+  min-height: 100%;
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  height: 100%; }
+
+body, ul, ol {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+ul, ol {
+  list-style: none; }
+.lighter-box {
+  margin-top: 40px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
+.lighters {
+  width: 150px;
+  height: 150px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-align: center;
+      align-items: center;
+  border: 1px solid lightgray; }
+  .lighters__light {
+    width: 60px;
+    height: 60px;
+    border: 1px solid lightgray;
+    border-radius: 50%; }
+    .lighters__light.active {
+      background-color: red; }

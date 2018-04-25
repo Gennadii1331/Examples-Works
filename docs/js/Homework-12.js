@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 339);
+/******/ 	return __webpack_require__(__webpack_require__.s = 344);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 339:
+/***/ 344:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(340);
+module.exports = __webpack_require__(345);
 
 
 /***/ }),
 
-/***/ 340:
+/***/ 345:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(341);
+__webpack_require__(346);
 
 /*
 const accordion = document.querySelector('#accordion');
@@ -112,80 +112,73 @@ function open() {
 
 
 */
-var accordion = document.querySelector('.card');
-var accordionItems = document.querySelectorAll('.Chapter');
-function open() {
-    var _loop = function _loop(chapter) {
-        chapter.onclick = function () {
-            close();
-            chapter.classList.add('active');
-        };
-        chapter.addEventListener('keypress', function (event) {
-            if (event.keyCode === 13) {
-                close();
-                chapter.classList.add('active');
+// const accordion = document.querySelector('.card');
+// const accordionItems = document.querySelectorAll('.Chapter');
+// function open() {
+//     for (let chapter of accordionItems) {
+//         chapter.onclick = function () {
+//            close();
+//             chapter.classList.add('active');
+//         };
+//         chapter.addEventListener('keypress', (event)=>{
+//             if(event.keyCode === 13){
+//             close();
+//             chapter.classList.add('active');
+//             }
+//         });
+//     }
+// }
+//
+// function close() {
+//     for (let chapter of accordionItems) {
+//         chapter.classList.remove('active');
+//     }
+// }
+//
+//
+// open();
+
+
+function accordion(accordionContaier) {
+    var ACTIVE_CLASS_NAME = 'active';
+    var elems = Array.from(accordionContaier.querySelectorAll('.accordion__card'));
+    var titles = Array.from(accordionContaier.querySelectorAll('.accordion__title'));
+
+    function closeAll() {
+        elems.forEach(function (el) {
+            return el.classList.remove(ACTIVE_CLASS_NAME);
+        });
+    }
+
+    titles.forEach(function (title) {
+        title.addEventListener('click', function () {
+            var accordionBlock = title.parentElement;
+            if (accordionBlock.classList.contains(ACTIVE_CLASS_NAME)) {
+                accordionBlock.classList.remove(ACTIVE_CLASS_NAME);
+            } else {
+                closeAll();
+                accordionBlock.classList.add(ACTIVE_CLASS_NAME);
             }
         });
-    };
-
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-        for (var _iterator = accordionItems[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var chapter = _step.value;
-
-            _loop(chapter);
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
+        title.addEventListener('keypress', function (event) {
+            if (event.keyCode === 13) {
+                var accordionBlock = title.parentElement;
+                if (accordionBlock.classList.contains(ACTIVE_CLASS_NAME)) {
+                    accordionBlock.classList.remove(ACTIVE_CLASS_NAME);
+                } else {
+                    closeAll();
+                    accordionBlock.classList.add(ACTIVE_CLASS_NAME);
+                }
             }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
-        }
-    }
+        });
+    });
 }
 
-function close() {
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
-
-    try {
-        for (var _iterator2 = accordionItems[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var chapter = _step2.value;
-
-            chapter.classList.remove('active');
-        }
-    } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                _iterator2.return();
-            }
-        } finally {
-            if (_didIteratorError2) {
-                throw _iteratorError2;
-            }
-        }
-    }
-}
-
-open();
+accordion(document.querySelector('.accordion'));
 
 /***/ }),
 
-/***/ 341:
+/***/ 346:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
