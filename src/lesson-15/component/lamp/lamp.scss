@@ -1,0 +1,21 @@
+.lamp{
+  width:80px;
+  &_active{
+    .lamp__lighter{
+      background-color: red;
+    }
+  }
+  &__lighter{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid grey;
+  }
+  &__btn{
+    border: none;
+    width: 100%;
+    display: block;
+  }
+
+
+}
