@@ -81,3 +81,4 @@ class Lighter {
  const lighter = new Lighter(document.querySelector('#appLighterBox'));
 
  export { lighter };
+// test
